@@ -9,6 +9,7 @@ require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var currencyRouter = require('./routes/currencies');
 
 var app = express();
 const exit = process.exit;
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/currencies', currencyRouter);
 
 // set up mongoose connection
 mongoose.Promise = global.Promise;
@@ -62,8 +64,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  res.status(err.status || 500).send(err.message);
 });
 
 module.exports = app;
