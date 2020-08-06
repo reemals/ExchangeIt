@@ -1,7 +1,6 @@
 const app = require('../../app');
 const supertest = require('supertest');
 const request = supertest(app);
-const mongoose = require("mongoose");
 const {setupDB } =require("../setupMongo");
 
 describe("Currencies endpoints tests", () => {

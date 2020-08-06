@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 mongoose.set('useCreateIndex', true)
-mongoose.promise = global.Promise
+mongoose.promise = global.Promise;
+require('dotenv').config();
 
 async function removeAllCollections () {
     const collections = Object.keys(mongoose.connection.collections)

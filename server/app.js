@@ -8,6 +8,8 @@ require('dotenv').config();
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var currencyRouter = require('./routes/currencies');
+var alertRouter = require('./routes/alerts');
+var userRouter = require('./routes/users');
 
 var app = express();
 
@@ -20,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/currencies', currencyRouter);
+app.use('/alerts', alertRouter);
 
 // serve react app
 app.get('*', function(req, res, next) {

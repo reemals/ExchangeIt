@@ -1,11 +1,11 @@
 const fetch = require('node-fetch');
+const service = require('../services/currencyService');
 
 const baseUrl = 'https://api.exchangeratesapi.io/latest';
 
 const CurrencyController = {
     getExchangeRate: (from, to) => {
-        return fetch(`${baseUrl}?base=${from}&symbols=${to}`)
-            .then((resp) => resp.json())
+        return service.getExchangeRate(from, to)
             .then((data) => Promise.resolve(data))
             .catch(err => Promise.reject(err));
     },

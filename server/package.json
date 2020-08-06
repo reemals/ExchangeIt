@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www | pino-pretty",
+    "dev:debug": "nodemon --inspect ./bin/www",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
@@ -18,7 +19,8 @@
     "jade": "~1.11.0",
     "mongoose": "^5.9.27",
     "morgan": "~1.9.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "nodemailer": "^6.4.11"
   },
   "devDependencies": {
     "jest": "^26.2.2",
@@ -33,10 +35,14 @@
     "setupFiles": [
       "./tests/setupJest.js"
     ],
-    "testPathIgnorePatterns": ["client"],
+    "testPathIgnorePatterns": [
+      "client"
+    ],
     "testEnvironment": "node",
     "collectCoverage": true,
-    "coverageReporters": ["html"],
+    "coverageReporters": [
+      "html"
+    ],
     "coverageDirectory": "./coverage/"
   }
 }
