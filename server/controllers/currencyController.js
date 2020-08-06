@@ -14,7 +14,6 @@ const CurrencyController = {
         return fetch(`${baseUrl}?base=${from}&symbols=${to}`)
             .then((resp) => resp.json())
             .then((data) => {
-                console.log(data);
                 const rate = data.rates[to];
                 const coverted = amount * rate;
                 return Promise.resolve({
