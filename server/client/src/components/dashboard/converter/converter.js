@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { fetchCurrencies } from '../../../actions';
-import { Input, Box, Select, MenuItem } from '@material-ui/core';
+import { Input, Box, Select, MenuItem, Button } from '@material-ui/core';
 import './converter.css'
 
 //TODO: remove once endpoint is done
@@ -29,20 +29,15 @@ class Converter extends React.Component {
     }
 
     handleInputChange = (e) => {
-        e.preventDefault();
         const target = e.target;
         const name = target.name;
         const value = target.value;
         this.setState({ [name]: value });
-        this.handleExchangeRateStringUpdate();
         console.log(this.state);
     }
 
-    handleSelectInputChange = (e) => {
-        const target = e.target;
-        const name = target.name;
-        const value = target.value;
-        this.setState({ [name]: value });
+    handleCalculate = (e) => {
+        this.handleExchangeRateStringUpdate();
     }
 
     handleExchangeRateStringUpdate = () => {
@@ -69,7 +64,7 @@ class Converter extends React.Component {
                             defaultValue={'USD'}
                             value={this.state.currency1}
                             name='currency1'
-                            onChange={this.handleSelectInputChange.bind()}
+                            onChange={this.handleInputChange}
                         >
                             {
                                 this.state.currencyList.map((currency, index) => {
@@ -85,7 +80,7 @@ class Converter extends React.Component {
                             placeholder={(this.state.amount2 === '') ? 'enter input amount' : ''}
                             name='amount1'
                             multiline={false}
-                            onChange={this.handleInputChange.bind()}
+                            onChange={this.handleInputChange}
                             disabled={this.state.amount2 !== ''}
                         >
                         </Input>
@@ -95,7 +90,7 @@ class Converter extends React.Component {
                             autoWidth={true}
                             value={this.state.currency2}
                             name={'currency2'}
-                            onChange={this.handleSelectInputChange.bind()}
+                            onChange={this.handleInputChange}
                         >
                             {
                                 this.state.currencyList.map((currency, index) => {
@@ -111,10 +106,13 @@ class Converter extends React.Component {
                             placeholder={(this.state.amount1 === '') ? 'enter output amount' : ''}
                             name='amount2'
                             multiline={false}
-                            onChange={this.handleInputChange.bind()}
+                            onChange={this.handleInputChange}
                             disabled={this.state.amount1 !== ''}
                         >
                         </Input>
+                    </div>
+                    <div>
+                        <input type="button" id="calculateButton" value="Calculate" onClick={this.handleCalculate}/>
                     </div>
                     <div className='exchangeRateString'>
                         {(this.state.exchangeRateString !== '') ? <h4>{this.state.exchangeRateString}</h4> : null}
