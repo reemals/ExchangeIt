@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ExchangeIt</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+</head>
+<body>
+
+<!----------------- alart-page------------------>
+<div class="alert-page">
+	<!-------------title------------------------>
+	<div class="title">
+		<div class="edit">
+			<span>Edit</span>
+			<button type="button" class="plus-btn" onclick="openForm()">
+				<span>+</span>
+			</button>
+		</div>
+
+		<div class="alerts">
+			<span>Alerts</span>
+		</div>
+		
+	</div>
+
+	<br>
+
+	<!-------- alert 1---------------------------->
+	<div class="alert-boxed">
+		<span>USD to CAD</span>
+		<div class="toggle-btn" 
+			 onclick="this.classList.toggle('active')">
+			<div class="inner-circle">
+			</div>
+		</div>
+		<div class="rate-value">
+			<span>1.52</span>
+		</div>
+	</div>
+
+
+	<!-------- alert 2---------------------------->
+	<div class="alert-boxed">
+		<span>USD to CAD</span>
+		<div class="toggle-btn" 
+			 onclick="this.classList.toggle('active')">
+			<div class="inner-circle">
+			</div>
+		</div>
+		<div class="rate-value">
+			<span>1.08 - 1.12</span>
+		</div>
+	</div>
+
+
+	<!---------------a new alert added by user ----------->
+	<div class="alert-boxed" id="newAlert" style="display: none">
+		<span>RBM to CAD</span>
+		<div class="toggle-btn" 
+			 onclick="this.classList.toggle('active')">
+			<div class="inner-circle">
+			</div>
+		</div>
+		<div class="rate-value">
+			<span>4.95 - 5.05</span>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+<!---------------add a new alert--------------------->
+<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+
+  	<button type="button" class="close-btn" onclick="closeForm()">
+  		<span aria-hidden="true">&times;</span>
+  	</button>
+
+    <div class="alerts">
+			<span>Set An Alert</span>
+	</div>
+	
+    <div style="float:left; ">
+    	<label for="currency1"><b>From</b></label>
+    	<input type="text" placeholder="Enter currency" name="currency1" required>
+    </div>
+    
+    <div style="margin-left: 180px;">
+    	<label for="currency2"><b>To</b></label>
+    	<input type="text" placeholder="Enter currency" name="currency2" required>
+    </div>
+    
+
+    <!---------------add check box ----------->
+   <div>
+   		<input style = "float: left", type="checkbox" id="opt1" name="option1" value="One Value">
+		<label for="opt1"> One Value</label><br>
+
+
+		<input style = "width: 30px", name="value">
+		
+   </div>
+	
+	<br>
+
+   <div>
+   		<input style = "float: left", type="checkbox" id="opt2" name="option2" value="Range">
+		<label for="opt1"> Range</label><br>
+
+		<input style = "float : left; width: 30px", name="value1">
+		<span style = "float : left; margin-left: 30px">~</span>
+		<input style = "margin-left: 100px; width: 30px", name="value2">
+   </div>
+	
+	<br>
+
+
+    <button type="submit" class="btn" onclick="closeFormAndAdd()">Add</button>
+  </form>
+</div>
+
+
+
+</body>
+</html>
