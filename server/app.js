@@ -9,7 +9,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var currencyRouter = require('./routes/currencies');
 var alertRouter = require('./routes/alerts');
-var userRouter = require('./routes/users');
 
 var app = express();
 

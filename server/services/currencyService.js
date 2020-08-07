@@ -1,4 +1,5 @@
 const baseUrl = 'https://api.exchangeratesapi.io/latest';
+const fetch = require('node-fetch');
 
 const CurrencyService = {
     getExchangeRate: (from, to) => {
