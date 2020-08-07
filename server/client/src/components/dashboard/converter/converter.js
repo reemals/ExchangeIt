@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchCurrencies } from '../../actions';
+import { fetchCurrencies } from '../../../actions';
 import { Input, Box, Select, MenuItem } from '@material-ui/core';
 import './converter.css'
 
@@ -63,7 +63,6 @@ class Converter extends React.Component {
         return (
             <div className="mainContainer">
                 <Box>
-                    <h2> Currency Converter </h2>
                     <div className='curr1'>
                         <Select
                             autoWidth={true}
