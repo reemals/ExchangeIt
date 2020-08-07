@@ -1,0 +1,45 @@
+.alert-page{
+	background: #f1f1f1;
+	width: 330px;
+	height: 400px;
+	position: fixed;
+	left: 15px;
+	padding: 20px 0;
+	margin: auto;
+	margin-top: 20px;
+	box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0, 1)
+}
+
+.location{
+	margin-left: 10px;
+}
+
+
+.alerts span{
+	font-weight: bold;
+	padding: 0 5px;
+	color: #00acee;
+	cursor: pointer;
+	width: 100px;
+	text-align: left;
+	font-size: 32px;
+
+
+}
+
+.edit span{
+	padding: 0 5px;
+	color: white;
+	cursor: pointer;
+	width: 100px;
+	text-align: left;
+	font-size: 15px;
+}
+
+.findBanks-btn{
+	background: #00acee;
+	border:2px solid #00acee;
+	font-size: 5px;
+	margin-left: 30px;
+}
+

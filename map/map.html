@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ExchangeIt</title>
+	<link rel="stylesheet" type="text/css" href="mapStyle.css">
+	<script src="mapScript.js"></script>
+</head>
+<body>
+
+<!----------------- alart-page------------------>
+<div class="alert-page">
+  
+	<!-----------location---------------->
+	<div class="location">
+    	<label style="font-size: 18px" for="location"><b>Location</b></label>
+    	<input style="width: 200px; margin-left: 15px" type="text" placeholder="Location..." name="location" required>
+    </div>
+
+
+    <!----------currency------------------>
+    <div style="margin-top: 20px; margin-left: 10px">
+    	<div style="float:left; ">
+    		<input style="width: 50px;" type="text" placeholder="USD" name="currency1" required>
+   		</div>
+    	
+    	<div style="float:left; margin-left: 10px">
+    		<span style='font-size:20px;'>&#8594</span>
+    	</div>
+
+    	<div style="float : left; margin-left: 20px;">
+    		<input style="width: 50px;" type="text" placeholder="CAD" name="currency2" required>
+    	</div>
+
+    	<!------------------find banks button---------------->
+    	<div class="edit">
+    		<button type="button" class="findBanks-btn" onclick="openForm()">
+				<span>Find Banks</span>
+			</button>
+    	</div>
+    	
+    </div>
+
+
+
+
+	<!---------------map ----------->
+	<div id="map" style="display: none">
+		<img src="map.jpeg" alt="Map" width="300" height="300" style="margin: 10px">
+	</div>
+
+</div>
+
+
+
+
+</body>
+</html>
