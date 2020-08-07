@@ -1,12 +1,5 @@
-.alert-page{
-	background: #f1f1f1;
-	width: 330px;
-	height: 400px;
-	left: 15px;
-	padding: 20px;
-	margin: 30px;
-	border-radius: 10px;
-	border: 5px #C8C8C8;
+.mapContainer{
+
 }
 
 .location{
@@ -27,7 +20,7 @@
 	font-size: 32px;
 }
 
-.edit span{
+.edit findBanks-btn{
 	padding: 0 5px;
 	color: white;
 	cursor: pointer;
@@ -39,12 +32,20 @@
 .findBanks-btn{
 	background: #00acee;
 	border:2px solid #00acee;
-	font-size: 5px;
 	margin-left: 30px;
 }
 
 .container {
-	border-width: 5px;
-	border-color: #c8c8c8;
+	width: 40%;
+	position: relative;
+	background: #f1f1f1;
+	height: auto;
+	padding: 30px;
+	margin: 30px;
+	margin-right: 100px;
+	border-radius: 10px;
+	border: 5px #C8C8C8;
+	float: left;
+	position: relative;
 }
 

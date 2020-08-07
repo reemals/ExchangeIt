@@ -18,10 +18,10 @@ class Map extends React.Component {
     render() {
         return (
             <div className="container">
-                <div className="alert-page">
+                <div className="mapContainer">
                     <div className="location">
                         <label style={{fontSize: 18}}><b>Location</b></label>
-                        <input style={{width: 200, marginLeft: 15}} type="text" placeholder="Location..."
+                        <input style={{marginLeft: 15}} type="text" placeholder="Location..."
                                name="location" required/>
                     </div>
                     <div style={{marginTop: 20, marginLeft: 10}}>
@@ -39,13 +39,13 @@ class Map extends React.Component {
 
                         <div className="edit">
                             <button type="button" className="findBanks-btn" onClick={this.toggleDisplay}>
-                                <span>Find Banks</span>
+                                Find Banks
                             </button>
                         </div>
 
                     </div>
                     {(this.state.showMap) ? <div id="map">
-                        <img src={mapImage} alt="Map" width="300" height="300" style={{margin: 10}}/>
+                        <img src={mapImage} alt="Map" width="800" height="800" style={{margin: 10}}/>
                     </div> : null}
                 </div>
             </div>
