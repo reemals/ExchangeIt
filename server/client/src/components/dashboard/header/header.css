@@ -1,0 +1,18 @@
+.navBar {
+    overflow: hidden;
+    list-style-type: none;
+    text-align: left;
+    margin-top: 0px;
+    padding: 8px 0px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    color: #1e62d0;
+    text-decoration: none;
+}
+
+.headerPic {
+    background-image: url(./image/logo.png);
+}

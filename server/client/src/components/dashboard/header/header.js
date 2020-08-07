@@ -1,9 +1,14 @@
 import React from 'react';
+import "./header.css"
+import headerPic from "./image/logo.png"
 
 class Header extends React.Component {
     render() {
-        //TODO: replace
-        return <p>header</p>;
+        return (
+            <div className="navBar">
+                <img src={headerPic} width="200" alt="Logo" />
+            </div>
+        );
     }
 
 }

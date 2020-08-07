@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import Dashboard from "../dashboard/dashboard";
 import Login from "../login/login";
-import Header from "../dashboard/header/header";
 
 const App = () => {
   return (
@@ -23,7 +22,6 @@ const App = () => {
                 <Login/>
               </Route>
               <Route path="/dashboard">
-                <Header/>
                 <Dashboard/>
               </Route>
             </Switch>

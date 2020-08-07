@@ -2,18 +2,20 @@
 	background: #f1f1f1;
 	width: 330px;
 	height: 400px;
-	position: fixed;
 	left: 15px;
-	padding: 20px 0;
-	margin: auto;
-	margin-top: 20px;
-	box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0, 1)
+	padding: 20px;
+	margin: 30px;
+	border-radius: 10px;
+	border: 5px #C8C8C8;
 }
 
 .location{
 	margin-left: 10px;
 }
 
+.mapImage {
+	background-image: url(./map.jpeg);
+}
 
 .alerts span{
 	font-weight: bold;
@@ -23,8 +25,6 @@
 	width: 100px;
 	text-align: left;
 	font-size: 32px;
-
-
 }
 
 .edit span{
@@ -41,5 +41,10 @@
 	border:2px solid #00acee;
 	font-size: 5px;
 	margin-left: 30px;
+}
+
+.container {
+	border-width: 5px;
+	border-color: #c8c8c8;
 }
 
