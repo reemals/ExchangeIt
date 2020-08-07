@@ -24,28 +24,21 @@ export const fetchCurrencies = currencyList => {
     };
 };
 
-export const fetchExchangeRate = (curr1, curr2, amount) => {
+export const fetchExchangeRate = (curr1, curr2) => {
     return function(dispatch, getState) {
-        return fetch(`/reviews/`, {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                from: curr1,
-                to: curr2,
-                amount: amount
-            }),
-            credentials: 'include'
-        })
+        const url = `/currencies?from=` + curr1 + `&to=` + curr2;
+        return fetch(url)
             .then(
                 data => data.json())
             .then(data => {
-                dispatch(fetched_exchange_rate(data))}
+                    dispatch(fetched_exchange(data));
+                }
             )
             .catch(err => console.log(err));
     };
 };
 
-export const fetched_exchange_rate = data => {
+export const fetched_exchange = data => {
     console.log(data);
     return {
         type: "FETCHED_EXCHANGE_RATE",

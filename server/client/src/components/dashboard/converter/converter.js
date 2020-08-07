@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchExchangeRate} from '../../../actions';
+import { fetchExchangeRate } from '../../../actions';
 import { Input, Box, Select, MenuItem, FormControl } from '@material-ui/core';
 import './converter.css'
 
@@ -19,8 +19,8 @@ class Converter extends React.Component {
             currency1: 'USD',
             currency2: '',
             currencyList: currencyList,
-            exchangeRate: '',
-            exchangeRateString: ''
+            exchangeRateString: '',
+            exchangeRate: 0
         }
     }
 
@@ -37,16 +37,20 @@ class Converter extends React.Component {
         console.log(this.state);
     }
 
-    handleCalculate = () => {
-        this.props.dispatch(fetchExchangeRate(this.state.currency1, this.state.currency2, this.state.amount1))
-            .then(this.handleExchangeRateUpdate());
-    }
 
     handleExchangeRateUpdate = () => {
+        this.props.dispatch(fetchExchangeRate(this.state.currency1, this.state.currency2));
+        this.setState({exchangeRate: this.props.exchangeRate});
+        this.handleUpdateString();
+    }
+
+    handleUpdateString = () => {
         if (this.state.amount1 !== '') {
             let str =  '1 ' + this.state.currency1 + ' = ' + this.state.exchangeRate + ' ' + this.state.currency2;
+            console.log(str);
             this.setState({
-                exchangeRateString: str
+                exchangeRateString: str,
+                amount2:(this.state.exchangeRate * this.state.amount1)
             })
         }
     }
@@ -80,7 +84,6 @@ class Converter extends React.Component {
                             name='amount1'
                             multiline={false}
                             onChange={this.handleInputChange}
-                            disabled={this.state.amount2 !== ''}
                         >
                         </Input>
                     </div>
@@ -114,10 +117,10 @@ class Converter extends React.Component {
                         </Input>
                     </div>
                     <div>
-                        <input type="button" className="calculateButton" value="Calculate" onClick={this.handleCalculate}/>
+                        <input type="button" className="calculateButton" value="Calculate" onClick={this.handleExchangeRateUpdate.bind()}/>
                     </div>
                     <div className='exchangeRateString'>
-                        {(this.state.exchangeRateString !== '') ? <h4>{this.state.exchangeRateString}</h4> : null}
+                        {(this.state.exchangeRateString !== '') ? <h3>{this.state.exchangeRateString}</h3> : null}
                     </div>
 
                 </Box>
@@ -127,6 +130,7 @@ class Converter extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        exchangeRate: state.exchangeRate
     };
 }
 

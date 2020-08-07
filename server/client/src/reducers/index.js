@@ -10,11 +10,16 @@ import thunk from 'redux-thunk';
 };
 */
 
-const currencyReducer = () => {
-
+const conversionReducer = (exchangeRate = '', action) => {
+    if (action.type === 'FETCHED_EXCHANGE_RATE') {
+        console.log(action.data);
+        return Object.values(action.data.rates)[0];
+    }
+    return exchangeRate;
 }
 
 const allReducers = combineReducers({
+    exchangeRate: conversionReducer
 });
 
 const store = createStore(allReducers, applyMiddleware(thunk))

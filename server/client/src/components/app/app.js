@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Dashboard from "../dashboard/dashboard";
 import Login from "../login/login";
-import Header from "../header/header";
+import Header from "../dashboard/header/header";
 
 const App = () => {
   return (

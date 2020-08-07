@@ -4,6 +4,7 @@
     background-color: #f1f1f1;
     border: 2px solid #C8C8C8;
     margin: 30px;
+    border-radius: 10px;
 }
 
 .calculateButton {
