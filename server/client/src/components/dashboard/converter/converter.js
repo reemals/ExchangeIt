@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchCurrencies } from '../../../actions';
-import { Input, Box, Select, MenuItem, Button } from '@material-ui/core';
+import { fetchExchangeRate} from '../../../actions';
+import { Input, Box, Select, MenuItem, FormControl } from '@material-ui/core';
 import './converter.css'
 
 //TODO: remove once endpoint is done
@@ -19,6 +19,7 @@ class Converter extends React.Component {
             currency1: 'USD',
             currency2: '',
             currencyList: currencyList,
+            exchangeRate: '',
             exchangeRateString: ''
         }
     }
@@ -36,18 +37,14 @@ class Converter extends React.Component {
         console.log(this.state);
     }
 
-    handleCalculate = (e) => {
-        this.handleExchangeRateStringUpdate();
+    handleCalculate = () => {
+        this.props.dispatch(fetchExchangeRate(this.state.currency1, this.state.currency2, this.state.amount1))
+            .then(this.handleExchangeRateUpdate());
     }
 
-    handleExchangeRateStringUpdate = () => {
-        if (this.state.amount1 === '' && this.state.amount2 !== '') {
-            let str = /*this.props.exchangeRate*/ 'x ' + this.state.currency1 + ' = ' + this.state.amount2 + ' ' + this.state.currency2;
-            this.setState({
-                exchangeRateString: str
-            })
-        } else if (this.state.amount1 !== '' && this.state.amount2 === '') {
-            let str =  this.state.amount1 + this.state.currency1 + ' = ' + /*this.props.exchangeRate*/ 'x ' + ' ' + this.state.currency2;
+    handleExchangeRateUpdate = () => {
+        if (this.state.amount1 !== '') {
+            let str =  '1 ' + this.state.currency1 + ' = ' + this.state.exchangeRate + ' ' + this.state.currency2;
             this.setState({
                 exchangeRateString: str
             })
@@ -59,8 +56,9 @@ class Converter extends React.Component {
             <div className="mainContainer">
                 <Box>
                     <div className='curr1'>
+                        <h3>From:</h3>
+                        <FormControl style={{minWidth: '100px', marginRight: '20px'}}>
                         <Select
-                            autoWidth={true}
                             defaultValue={'USD'}
                             value={this.state.currency1}
                             name='currency1'
@@ -75,9 +73,10 @@ class Converter extends React.Component {
                                 })
                             }
                         </Select>
+                        </FormControl>
                         <Input
                             value={this.state.amount1}
-                            placeholder={(this.state.amount2 === '') ? 'enter input amount' : ''}
+                            placeholder={"Input Amount"}
                             name='amount1'
                             multiline={false}
                             onChange={this.handleInputChange}
@@ -86,6 +85,8 @@ class Converter extends React.Component {
                         </Input>
                     </div>
                     <div className='curr2'>
+                        <h3>To:</h3>
+                        <FormControl style={{minWidth: '100px', marginRight: '20px'}}>
                         <Select
                             autoWidth={true}
                             value={this.state.currency2}
@@ -101,18 +102,19 @@ class Converter extends React.Component {
                                 })
                             }
                         </Select>
+                        </FormControl>
                         <Input
                             value={this.state.amount2}
-                            placeholder={(this.state.amount1 === '') ? 'enter output amount' : ''}
+                            placeholder={"Output Amount"}
                             name='amount2'
                             multiline={false}
                             onChange={this.handleInputChange}
-                            disabled={this.state.amount1 !== ''}
+                            disabled={true}
                         >
                         </Input>
                     </div>
                     <div>
-                        <input type="button" id="calculateButton" value="Calculate" onClick={this.handleCalculate}/>
+                        <input type="button" className="calculateButton" value="Calculate" onClick={this.handleCalculate}/>
                     </div>
                     <div className='exchangeRateString'>
                         {(this.state.exchangeRateString !== '') ? <h4>{this.state.exchangeRateString}</h4> : null}
