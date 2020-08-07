@@ -13,4 +13,13 @@ export const fetchCourses = (currentPage) => {
             )
             .catch(err => console.log(err));
     };
-};*/
+};
+*/
+
+//TODO: implement once endpoint is done
+export const fetchCurrencies = currencyList => {
+    return {
+        type: "FETCHED_CURRENCIES",
+        data: currencyList
+    };
+};

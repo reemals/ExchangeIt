@@ -10,6 +10,10 @@ import thunk from 'redux-thunk';
 };
 */
 
+const currencyReducer = () => {
+
+}
+
 const allReducers = combineReducers({
 });
 
